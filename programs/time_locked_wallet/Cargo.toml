@@ -1,0 +1,27 @@
+[package]
+name = "time_locked_wallet"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "time_locked_wallet"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+
+[dependencies]
+anchor-lang = { version = "0.31.1", features = ["init-if-needed"] }
+anchor-spl = "=0.31.1"
+
+[patch.crates-io]
+solana-program = { git = "https://github.com/solana-labs/solana", tag = "v1.18.21" }
+spl-memo = { git = "https://github.com/solana-labs/solana-program-library", tag = "v1.18.21" }
+spl-token = { git = "https://github.com/solana-labs/solana-program-library", tag = "v1.18.21" }
+
