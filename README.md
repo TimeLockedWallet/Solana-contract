@@ -28,4 +28,32 @@ sh -c "$(curl -sSfL https://release.anza.xyz/v1.18.21/install)"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 solana --version
 ```
-
+Tạo ví mới và chuyển sang Devnet:
+```bash
+solana-keygen new
+solana config set -u https://api.devnet.solana.com
+solana airdrop 5
+```
+### 3. Cài Anchor
+```bash
+cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
+avm install 0.30.1
+avm use 0.30.1
+anchor --version
+```
+## Smart Contract 
+### Clone repo 
+```bash
+git clone https://github.com/TimeLockedWallet/Solana-contract.git
+cd time_locked_wallet
+```
+### Build và Deploy
+```bash
+anchor build
+anchor deploy
+```
+Program ID sẽ được sinh ra trong:
+```bash
+target/deploy/time_lock_wallet-keypair.json
+```
+Cập nhật Anchor.toml và lib.rs với Program ID này
