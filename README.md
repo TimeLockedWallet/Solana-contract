@@ -41,7 +41,7 @@ avm install 0.30.1
 avm use 0.30.1
 anchor --version
 ```
-## Smart Contract 
+## 📦 Smart Contract 
 ### Clone repo 
 ```bash
 git clone https://github.com/TimeLockedWallet/Solana-contract.git
@@ -60,7 +60,7 @@ Cập nhật Anchor.toml và lib.rs với Program ID này, sau đó chạy lện
 ```bash
 npm run test
 ```
-## Giải thích các hàm 
+## 🚀 Giải thích các hàm 
 ### 1. Khởi tạo cấu hình 
 ```bash
 it("Is initialized!", async () => {
@@ -77,6 +77,7 @@ it("Is initialized!", async () => {
 ```
 ### 2. Tạo ví khóa tiền
 Ví dụ: Khóa 1 USDC trong 60 giây.
+
 Tham số 
 
 **unlockTimestamp (BN)** : Thời gian mở khoá token
