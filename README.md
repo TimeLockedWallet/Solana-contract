@@ -1,22 +1,23 @@
 # Time Lock Wallet ⏳💰  
-A Solana smart contract (using Anchor) + Frontend app that allows you to lock SOL until a specific timestamp. Once the unlock time is reached, you can withdraw your funds back.  
+Dự án ví khóa thời gian trên Solana. Chương trình được viết bằng **Anchor** và có frontend React để tương tác.  
+Người dùng có thể khóa SOL hoặc token SPL cho đến một thời điểm xác định. Sau khi đến hạn, họ mới có thể rút tiền.  
 
 ---
 
-## Features
-- ✅ **initialize_lock(amount, unlock_timestamp)** — Create a time lock wallet with SOL and lock until `unlock_timestamp`.  
-- ✅ **withdraw()** — Withdraw locked SOL after unlock time.  
-- ✅ **Funds stored in PDA** — Program Derived Address securely holds locked SOL.  
-- ✅ **On-chain enforced lock** — Withdrawal fails if attempted too early.  
-- ✅ **Frontend** — Simple React app with Phantom/Backpack wallet integration.  
-- ✅ **Devnet support** — Deploy and test using Solana Devnet.  
+## 🚀 Tính năng
+- ✅ **initialize** — Khởi tạo cấu hình chương trình.  
+- ✅ **initializeLock(amount, unlock_timestamp, isSol)** — Tạo ví khóa tiền với số lượng và thời gian mở khóa.  
+- ✅ **withdraw()** — Rút tiền sau khi đến thời gian mở khóa.  
+- ✅ **Quản lý quỹ bằng PDA** — Số tiền khóa được giữ bởi tài khoản PDA do chương trình sở hữu.  
+- ✅ **Ràng buộc logic on-chain** — Không thể bypass bằng frontend.  
+- ✅ **Frontend React** — Giao diện đơn giản kết nối với Phantom hoặc Backpack.  
+- ✅ **Hỗ trợ Devnet** — Dễ dàng thử nghiệm trước khi triển khai mainnet.  
 
 ---
 
-# Part One - Environment Setup ⚙️
-Before writing or deploying smart contracts on Solana, we need to set up the development environment.
+## ⚙️ Cài đặt môi trường
 
-### 1. Install Rust
+### 1. Cài Rust
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 . "$HOME/.cargo/env"
