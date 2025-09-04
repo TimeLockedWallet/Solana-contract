@@ -105,7 +105,7 @@ pub fn withdraw(
             amount
         ).map_err(|_|TimeLockedWalletError::TokenTransferFailed)?;
     }
-
+    vault.amount = 0;
     vault.unlock_timestamp = 0;
     Ok(())
 }

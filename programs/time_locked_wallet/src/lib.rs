@@ -8,7 +8,7 @@ pub mod states;
 pub mod utils;
 
 use instructions::*;
-declare_id!("2JmVJxHLe3mjitVzwywyH8Hz5a4Hw2ZmjkuD77Px3iFp");
+declare_id!("fi79pH1tGywgPZWmoStRoYgNrUFYvoJZAM2wqDb8yjK");
 
 #[program]
 pub mod time_locked_wallet {

@@ -2,6 +2,7 @@ use anchor_lang::prelude::*;
 
 #[account]
 pub struct Vault {
+    pub token : Pubkey,
     pub amount : u64,
     pub unlock_timestamp: i64,
     pub recipient: Pubkey,

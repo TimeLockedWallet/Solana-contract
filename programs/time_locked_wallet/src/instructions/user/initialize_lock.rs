@@ -70,6 +70,7 @@ pub fn initialize_lock (
         return err!(TimeLockedWalletError::TimeLockNotExpired);
     }
 
+    vault.token = ctx.accounts.token_mint.key();
     vault.amount = amount;
     vault.unlock_timestamp = unlock_timestamp;
     vault.recipient = recipient;

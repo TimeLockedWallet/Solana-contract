@@ -104,28 +104,28 @@ describe("time_locked_wallet", () => {
   //   console.log("Your transaction signature", tx);
   // });
 
-  // it("Should successfully initialize the lock!", async () => {
-  //   const unlockTimestamp = Math.floor(Date.now() / 1000) + 60;
-  //   const amount = new BN(1_000_000); // 1 USDC 
-  //   const isSol = true;
-  //   const tx = await program.methods.
-  //     initializeLock(
-  //       new BN(unlockTimestamp),
-  //       authority.publicKey,
-  //       amount,
-  //       isSol
-  //   ).accountsPartial({
-  //       vault : vaultPda,
-  //       bankVault : bankVaultPda,
-  //       userTokenAta : userUsdcAta,
-  //       bankVaultTokenAta : bankVaultUsdcAta,
-  //       user : authority.publicKey,
-  //       tokenMint : TOKENS.usdcMint,
-  //       associatedTokenProgram : anchor.utils.token.ASSOCIATED_PROGRAM_ID,
-  //       systemProgram: SystemProgram.programId,
-  //   }).rpc();
-  //   console.log("Your transaction signature", tx);
-  // });
+  it("Should successfully initialize the lock!", async () => {
+    const unlockTimestamp = Math.floor(Date.now() / 1000) + 60;
+    const amount = new BN(1_000_000); // 1 USDC 
+    const isSol = true;
+    const tx = await program.methods.
+      initializeLock(
+        new BN(unlockTimestamp),
+        authority.publicKey,
+        amount,
+        isSol
+    ).accountsPartial({
+        vault : vaultPda,
+        bankVault : bankVaultPda,
+        //userTokenAta : new PublicKey(""),
+        //bankVaultTokenAta : new PublicKey(""),
+        user : authority.publicKey,
+        //tokenMint : new PublicKey(""),
+        associatedTokenProgram : anchor.utils.token.ASSOCIATED_PROGRAM_ID,
+        systemProgram: SystemProgram.programId,
+    }).rpc();
+    console.log("Your transaction signature", tx);
+  });
 
   // it("Withdraws funds successfully", async () => {
   //   console.log("Current timestamp:", Math.floor(Date.now() / 1000));
@@ -143,4 +143,10 @@ describe("time_locked_wallet", () => {
   //   }).rpc();
   //   console.log("Your transaction signature", tx);
   // });
+  
+  // it("Vault info", async () => { 
+  //   const vaultInfo = await program.account.vault.fetch(vaultPda);
+  //   console.log(vaultInfo);
+  // });
 });
+
