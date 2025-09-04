@@ -79,8 +79,11 @@ it("Is initialized!", async () => {
 Ví dụ: Khóa 1 USDC trong 60 giây.
 Tham số 
 **unlockTimestamp (BN)** : Thời gian mở khoá token
+
 **recipient (address)** : Địa chỉ của người nhận 
+
 **amount (BN)** : Số tiền deposit 
+
 **isSol(boolean)** : true nếu gửi Sol và false nếu gửi token SPL(như USDC)
 ```bash
 it("Should successfully initialize the lock!", async () => {
