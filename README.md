@@ -20,10 +20,10 @@ Người dùng có thể khóa SOL hoặc token SPL cho đến một thời đi�
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 . "$HOME/.cargo/env"
 rustc --version
-rustup default 1.83.0
+rustup default 1.83.0 ```
 ### 2. Cài Solana CLI
 ```bash
 sh -c "$(curl -sSfL https://release.anza.xyz/v1.18.21/install)"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
-solana --version
+solana --version ```
 
