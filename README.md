@@ -78,6 +78,7 @@ it("Is initialized!", async () => {
 ### 2. Tạo ví khóa tiền
 Ví dụ: Khóa 1 USDC trong 60 giây.
 Tham số 
+
 **unlockTimestamp (BN)** : Thời gian mở khoá token
 
 **recipient (address)** : Địa chỉ của người nhận 
