@@ -8,8 +8,6 @@ Người dùng có thể khóa SOL hoặc token SPL cho đến một thời đi�
 - ✅ **initialize** — Khởi tạo cấu hình chương trình.  
 - ✅ **initializeLock(amount, unlock_timestamp, isSol)** — Tạo ví khóa tiền với số lượng và thời gian mở khóa.  
 - ✅ **withdraw()** — Rút tiền sau khi đến thời gian mở khóa.  
-- ✅ **Quản lý quỹ bằng PDA** — Số tiền khóa được giữ bởi tài khoản PDA do chương trình sở hữu.  
-- ✅ **Ràng buộc logic on-chain** — Không thể bypass bằng frontend.  
 - ✅ **Frontend React** — Giao diện đơn giản kết nối với Phantom hoặc Backpack.  
 - ✅ **Hỗ trợ Devnet** — Dễ dàng thử nghiệm trước khi triển khai mainnet.  
 
