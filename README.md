@@ -56,4 +56,70 @@ Program ID sẽ được sinh ra trong:
 ```bash
 target/deploy/time_lock_wallet-keypair.json
 ```
-Cập nhật Anchor.toml và lib.rs với Program ID này
+Cập nhật Anchor.toml và lib.rs với Program ID này, sau đó chạy lệnh sau để test từng hàm :
+```bash
+npm run test
+```
+## Giải thích các hàm 
+### 1. Khởi tạo cấu hình 
+```bash
+it("Is initialized!", async () => {
+  const tx = await program.methods
+    .initialize()
+    .accountsPartial({
+      config: configPda,
+      authority: authority.publicKey,
+      systemProgram: SystemProgram.programId,
+    })
+    .rpc();
+
+  console.log("Transaction signature", tx);
+});
+```
+### 2. Tạo ví khóa tiền
+Ví dụ: Khóa 1 USDC trong 60 giây.
+```bash
+it("Should successfully initialize the lock!", async () => {
+    const unlockTimestamp = Math.floor(Date.now() / 1000) + 60;
+    const amount = new BN(1_000_000); 
+    const isSol = false; // nếu khóa SOL thì để true, SPL token thì false
+    const tx = await program.methods.
+      initializeLock(
+        new BN(unlockTimestamp),
+        authority.publicKey,
+        amount,
+        isSol
+    ).accountsPartial({
+        vault : vaultPda,
+        bankVault : bankVaultPda,
+        userTokenAta : userUsdcAta,
+        bankVaultTokenAta : userUsdcAta,
+        user : authority.publicKey,
+        tokenMint : TOKENS.usdcMint,
+        associatedTokenProgram : anchor.utils.token.ASSOCIATED_PROGRAM_ID,
+        systemProgram: SystemProgram.programId,
+    }).rpc();
+    console.log("Your transaction signature", tx);
+  });
+```
+### 3. Rút tiền
+Chỉ rút được khi thời gian mở khóa đã đến.
+```bash
+it("Withdraws funds successfully", async () => {
+  const tx = await program.methods
+    .withdraw()
+    .accountsPartial({
+      vault: vaultPda,
+      bankVault: bankVaultPda,
+      bankVaultTokenAta: bankVaultUsdcAta,
+      recipientTokenAta: userUsdcAta,
+      owner: authority.publicKey,
+      tokenMint: TOKENS.usdcMint,
+      associatedTokenProgram: anchor.utils.token.ASSOCIATED_PROGRAM_ID,
+      systemProgram: SystemProgram.programId,
+    })
+    .rpc();
+
+  console.log("Transaction signature", tx);
+});
+```
