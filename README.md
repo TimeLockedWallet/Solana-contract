@@ -72,7 +72,6 @@ it("Is initialized!", async () => {
       systemProgram: SystemProgram.programId,
     })
     .rpc();
-
   console.log("Transaction signature", tx);
 });
 ```
@@ -93,7 +92,7 @@ it("Should successfully initialize the lock!", async () => {
         vault : vaultPda,
         bankVault : bankVaultPda,
         userTokenAta : userUsdcAta,
-        bankVaultTokenAta : userUsdcAta,
+        bankVaultTokenAta : bankVaultUsdcAta,
         user : authority.publicKey,
         tokenMint : TOKENS.usdcMint,
         associatedTokenProgram : anchor.utils.token.ASSOCIATED_PROGRAM_ID,
@@ -119,7 +118,6 @@ it("Withdraws funds successfully", async () => {
       systemProgram: SystemProgram.programId,
     })
     .rpc();
-
   console.log("Transaction signature", tx);
 });
 ```
