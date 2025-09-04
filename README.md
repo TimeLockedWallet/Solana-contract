@@ -6,7 +6,7 @@ Người dùng có thể khóa SOL hoặc token SPL cho đến một thời đi�
 
 ## 🚀 Tính năng
 - ✅ **initialize** — Khởi tạo cấu hình chương trình.  
-- ✅ **initializeLock(amount, unlock_timestamp, isSol)** — Tạo ví khóa tiền với số lượng và thời gian mở khóa.  
+- ✅ **initializeLock(amount, recipient, unlock_timestamp, isSol)** — Tạo ví khóa tiền với số lượng và thời gian mở khóa.  
 - ✅ **withdraw()** — Rút tiền sau khi đến thời gian mở khóa.  
 - ✅ **Frontend React** — Giao diện đơn giản kết nối với Phantom.  
 - ✅ **Hỗ trợ trên Devnet**  
